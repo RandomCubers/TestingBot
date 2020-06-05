@@ -32,6 +32,8 @@ client.on('message', message => {
     let perms_a = false;
     let args = message.content.toLowerCase().slice(prefix.length).split(" ");
 
+    console.log(blacklist);
+
     if (message.author.bot) return;
 
     if (message.member.hasPermission('ADMINISTRATOR', explicit = true)) perms_a = true;
@@ -208,6 +210,7 @@ client.on('message', message => {
         message.reply('That word is blacklisted, you cannot use that word')
     }
 
+    if (msg.startsWith('bot prefix')) message.reply('The prefix for this bot is ' + prefix)
 });
 
 client.login(process.env.token);
